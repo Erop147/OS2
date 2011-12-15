@@ -37,9 +37,11 @@ int main()
 		{
 			for (int i = 0; i < size; ++i)
 			{	
-																				// прибавляю в координаты х / (1 << sizeTiles), y / (1 << sizeTiles),
-																				// x % (1 << sizeTiles), y % (1 << sizeTiles). 
-				R[x >> sizeTiles][y >> sizeTiles][x & MOD][y & MOD] +=			// Если непосредственно делить - замедляется в 2 раза
+				
+				// РїСЂРёР±Р°РІР»СЏСЋ РІ РєРѕРѕСЂРґРёРЅР°С‚С‹ С… / (1 << sizeTiles), y / (1 << sizeTiles),
+				// x % (1 << sizeTiles), y % (1 << sizeTiles). 
+				// Р•СЃР»Рё РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ РґРµР»РёС‚СЊ - Р·Р°РјРµРґР»СЏРµС‚СЃСЏ РІ 2 СЂР°Р·Р°
+				R[x >> sizeTiles][y >> sizeTiles][x & MOD][y & MOD] +=
 					A[x >> sizeTiles][i >> sizeTiles][x & MOD][i & MOD] * B[i >> sizeTiles][y >> sizeTiles][i & MOD][y & MOD];
 			}
 		}
