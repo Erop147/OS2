@@ -178,67 +178,110 @@ loc_131:				; CODE XREF: seg000:0126j
 		popa
 		retn
 ; ---------------------------------------------------------------------------
-		dec	si
-		outsw
-		and	[bx+di+63h], ah
-		jz	short near ptr unk_1A3
-		jbe	short near ptr unk_1A1
-		and	[di+6Eh], ah
-		jz	short near ptr unk_1B3
-		jns	short near ptr loc_162+1
-		imul	bp, [bp+20h], 424Dh
-		push	dx
-		add	[bx+di+6Eh], cl
-		jbe	short near ptr unk_1AF
-		insb
-		imul	sp, [si+20h], 424Dh
-		push	dx
-		add	[bx+di+2Fh], cl
-		dec	di
-		and	[di+72h], ah
-		jb	short near ptr unk_1CD
-		jb	short $+2
-		dec	cx
-		outsb
-
-loc_162:				; CODE XREF: seg000:0141j
-		jbe	short near ptr loc_1C4+1
-		insb
-		imul	sp, [si+20h], 4250h
-		push	bx
-		add	[di], cl
-		or	dl, [bx+si+72h]
-		db	65h
-		jnb	short near ptr unk_1E6
-		and	[bx+di+6Ch], ah
-		insw
-		outsw
-		jnb	short near ptr unk_1EE
-		and	[bx+di+6Eh], ah
-		jns	short near ptr unk_19F
-		imul	sp, [di+79h], 20h
-		jz	short near ptr unk_1F4
-		and	[bp+si+65h], dh
-		bound	bp, [bx+6Fh]
-		jz	short near ptr unk_1BB
-		db	2Eh
-		add	cs:[di+42h], cl
-		push	dx
-		db	2Eh, 2Eh
-		add	cs:[bx+si], al
-; ---------------------------------------------------------------------------
+		db  4Eh	; N
+		db  6Fh	; o
+		db  20h
+		db  61h	; a
+		db  63h	; c
+		db  74h	; t
+		db  69h	; i
+		db  76h	; v
+		db  65h	; e
+		db  20h
+		db  65h	; e
+		db  6Eh	; n
+		db  74h	; t
+		db  72h	; r
+		db  79h	; y
+		db  20h
+		db  69h	; i
+		db  6Eh	; n
+		db  20h
+		db  4Dh	; M
+		db  42h	; B
+		db  52h	; R
+		db    0
+		db  49h	; I
+		db  6Eh	; n
+		db  76h	; v
+		db  61h	; a
+		db  6Ch	; l
+		db  69h	; i
+		db  64h	; d
+		db  20h
+		db  4Dh	; M
+		db  42h	; B
+		db  52h	; R
 		db    0
+		db  49h	; I
+		db  2Fh	; /
+		db  4Fh	; O
+		db  20h
+		db  65h	; e
+		db  72h	; r
+		db  72h	; r
+		db  6Fh	; o
+		db  72h	; r
 		db    0
+		db  49h	; I
+		db  6Eh	; n
+		db  76h	; v
+		db  61h	; a
+		db  6Ch	; l
+		db  69h	; i
+		db  64h	; d
+		db  20h
+		db  50h	; P
+		db  42h	; B
+		db  53h	; S
 		db    0
+		db  0Dh
+		db  0Ah
+		db  50h	; P
+		db  72h	; r
+		db  65h	; e
+		db  73h	; s
+		db  73h	; s
+		db  20h
+		db  61h	; a
+		db  6Ch	; l
+		db  6Dh	; m
+		db  6Fh	; o
+		db  73h	; s
+		db  74h	; t
+		db  20h
+		db  61h	; a
+		db  6Eh	; n
+		db  79h	; y
+		db  20h
+		db  6Bh	; k
+		db  65h	; e
+		db  79h	; y
+		db  20h
+		db  74h	; t
+		db  6Fh	; o
+		db  20h
+		db  72h	; r
+		db  65h	; e
+		db  62h	; b
+		db  6Fh	; o
+		db  6Fh	; o
+		db  74h	; t
+		db  2Eh	; .
+		db  2Eh	; .
+		db  2Eh	; .
 		db    0
+		db  4Dh	; M
+		db  42h	; B
+		db  52h	; R
+		db  2Eh	; .
+		db  2Eh	; .
+		db  2Eh	; .
 		db    0
 		db    0
 		db    0
-unk_19F		db    0			; CODE XREF: seg000:017Dj
 		db    0
-unk_1A1		db    0			; CODE XREF: seg000:013Aj
 		db    0
-unk_1A3		db    0			; CODE XREF: seg000:0138j
 		db    0
 		db    0
 		db    0
@@ -250,11 +293,9 @@ unk_1A3		db    0			; CODE XREF: seg000:0138j
 		db    0
 		db    0
 		db    0
-unk_1AF		db    0			; CODE XREF: seg000:014Cj
 		db    0
 		db    0
 		db    0
-unk_1B3		db    0			; CODE XREF: seg000:013Fj
 		db    0
 		db    0
 		db    0
@@ -262,25 +303,10 @@ unk_1B3		db    0			; CODE XREF: seg000:013Fj
 		db    0
 		db    0
 		db    0
-unk_1BB		db    0			; CODE XREF: seg000:018Bj
 		db    0
 		db    0
-; ---------------------------------------------------------------------------
-		add	byte ptr [bx+di], 1
-		add	[bx+di], bh
-		aas
-
-loc_1C4:				; CODE XREF: seg000:loc_162j
-		mov	di, 3F07h
-; ---------------------------------------------------------------------------
 		db    0
 		db    0
-; ---------------------------------------------------------------------------
-		add	cl, al
-		std
-		pop	ds
-; ---------------------------------------------------------------------------
-unk_1CD		db    0			; CODE XREF: seg000:015Cj
 		db    0
 		db    0
 		db    0
@@ -291,10 +317,21 @@ unk_1CD		db    0			; CODE XREF: seg000:015Cj
 		db    0
 		db    0
 		db    0
+		db  80h	; €
+		db    1
+		db    1
 		db    0
+		db  39h	; 9
+		db  3Fh	; ?
+		db 0BFh	; ¿
+		db    7
+		db  3Fh	; ?
 		db    0
 		db    0
 		db    0
+		db 0C1h	; Á
+		db 0FDh	; ý
+		db  1Fh
 		db    0
 		db    0
 		db    0
@@ -305,7 +342,6 @@ unk_1CD		db    0			; CODE XREF: seg000:015Cj
 		db    0
 		db    0
 		db    0
-unk_1E6		db    0			; CODE XREF: seg000:0170j
 		db    0
 		db    0
 		db    0
@@ -313,13 +349,29 @@ unk_1E6		db    0			; CODE XREF: seg000:0170j
 		db    0
 		db    0
 		db    0
-unk_1EE		db    0			; CODE XREF: seg000:0178j
 		db    0
 		db    0
 		db    0
 		db    0
 		db    0
-unk_1F4		db    0			; CODE XREF: seg000:0183j
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
+		db    0
 		db    0
 		db    0
 		db    0
@@ -335,4 +387,3 @@ seg000		ends
 
 
 		end
-
