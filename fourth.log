@@ -1,0 +1,61 @@
+size = 2048:
+$ time ./fourthR.exe
+
+real    3m35.081s
+user    0m0.000s
+sys     0m0.047s
+
+$ time ./fourthT.exe
+
+real    1m31.925s
+user    0m0.000s
+sys     0m0.046s
+
+;;;;;;;;;;;;;;;;;
+
+size = 1024:
+$ time ./fourthR.exe
+
+real    0m32.838s
+user    0m0.000s
+sys     0m0.031s
+
+$ time ./fourthT.exe
+                
+real    0m12.006s
+user    0m0.015s
+sys     0m0.062s
+
+
+;;;;;;;;;;;;;;;;;
+
+size = 512:
+$ time ./fourthR.exe
+
+real    0m4.130s
+user    0m0.015s
+sys     0m0.015s
+
+$ time ./fourthT.exe
+
+real    0m2.861s
+user    0m0.000s
+sys     0m0.031s
+
+
+;;;;;;;;;;;;;;;;;
+
+size = 256:
+$ time ./fourthR.exe
+
+real    0m0.166s
+user    0m0.015s
+sys     0m0.030s
+
+$ time ./fourthT.exe
+
+real    0m0.220s
+user    0m0.000s
+sys     0m0.031s
+
+;при небольших размерах матрицы сказывается более сложное вычисление адреса
