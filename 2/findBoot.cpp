@@ -3,7 +3,7 @@
 using namespace std;
 
 const char imageName[] = "plan9";
-                                                     
+
 void printBoot(FILE *in, long off)
 {
 	fseek(in, off - 512, SEEK_SET);
@@ -46,7 +46,7 @@ class bufferedReader
 	FILE *in;
 	int size;
 	int pos;
-	bool readNext() // удалось ли прочитать
+	bool readNext() // СѓРґР°Р»РѕСЃСЊ Р»Рё РїСЂРѕС‡РёС‚Р°С‚СЊ
 	{
 		pos = 0;
 		size = fread(buffer, 1, BUFFERSIZE, in);
@@ -64,7 +64,7 @@ public:
 		size = 0;
 		pos = 0;
 	}
-	bool getNext(char &c) // была ли ошибка
+	bool getNext(char &c) // Р±С‹Р»Р° Р»Рё РѕС€РёР±РєР°
 	{
 		if (pos == size && feof(in))
 			return true;
@@ -98,7 +98,7 @@ int main()
 
 
 	bufferedReader reader(in);
-	char prv;	
+	char prv;
 	if (reader.getNext(prv))
 	{
 		printf("Can't read from %s!\n", imageName);
