@@ -69,9 +69,9 @@ char* code="org 0x7c00\n"
 "crc32:\n"
 "dd 0x%X\n"
 "crcpoly:\n"
-"        dd 0xEDB88320\n"
+"	dd 0xEDB88320\n"
 "current_crc:\n"
-"        dd 0xFFFFFFFF\n"
+"	dd 0xFFFFFFFF\n"
 "sectors:\n"
 "db %d\n"
 "end:\n"
@@ -86,8 +86,8 @@ char* code2="end2:\n"
 
 unsigned long Crc32(unsigned char *buff, int len)
 {
-    unsigned long crc = 0xFFFFFFFFUL;
-    const unsigned long crcPoly = 0xEDB88320UL;
+	unsigned long crc = 0xFFFFFFFFUL;
+	const unsigned long crcPoly = 0xEDB88320UL;
 	for (int i = 0; i < len; ++i)
 	{
 		crc ^= buff[i];
@@ -103,22 +103,22 @@ unsigned long Crc32(unsigned char *buff, int len)
 				crc >>= 1;
 			}
 		}
-	}                           
-    return crc ^ 0xFFFFFFFFUL; 
+	}
+	return crc ^ 0xFFFFFFFFUL; 
 }
 
 
 int main(int argc, char* argv[])
 {
-	if(argc==1)
+	if (argc == 1)
 	{
-		fprintf(stderr,"No args\n");
+		fprintf(stderr, "No args\n");
 		return 0;
 	}
 	const int MAXSIZE = 30 * 1024;
 	unsigned char buffer[MAXSIZE];
-	FILE *in = fopen(argv[1],"r");
-	if(in == NULL)
+	FILE *in = fopen(argv[1], "r");
+	if (in == NULL)
 	{
 		fprintf(stderr,"Can't open file %s\n", argv[1]);
 		return 0;
@@ -129,8 +129,8 @@ int main(int argc, char* argv[])
 		fprintf(stderr, "Can't seek\n");
 		return 0;
 	}
-	
-	if(ftell(in) > MAXSIZE)
+
+	if (ftell(in) > MAXSIZE)
 	{
 		fprintf(stderr, "File too long\n");
 		return 0;
@@ -142,12 +142,12 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-    int size = fread(buffer, 1, 30720, in);
-    if (fclose(in))
-    {
-    	fprintf(stderr, "Can't close file %s\n", argv[1]);
+	int size = fread(buffer, 1, MAXSIZE, in);
+	if (fclose(in))
+	{
+		fprintf(stderr, "Can't close file %s\n", argv[1]);
 		return 0;
-    }
+	}
 	int sectors = (size + 1) >> 9;
 
 	if ((size + 1) & 511)
@@ -180,6 +180,7 @@ int main(int argc, char* argv[])
 	{
 		fprintf(stderr, "Can't close boot.asm\n");
 	}
+
 	system("nasm boot.asm -o boot.bin");
 	return 0;
 }
